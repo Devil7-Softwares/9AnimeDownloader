@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System.Collections.Generic;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace _9Anime_Downloader.Utils
@@ -12,6 +13,7 @@ namespace _9Anime_Downloader.Utils
     public static class NineAnime
     {
         private static RestClient client;
+        private static string mcloudKey;
 
         public static void SetDomain(string domain)
         {
@@ -53,6 +55,18 @@ namespace _9Anime_Downloader.Utils
 
                             servers.Add(server);
                         }
+                    }
+                }
+
+                RestRequest mcloudKeyRequest = new RestRequest("https://mcloud.to/key");
+                mcloudKeyRequest.AddHeader("Referer", client.BaseUrl.ToString());
+                RestResponse mcloudKeyResponse = (RestResponse)client.Execute(mcloudKeyRequest);
+                if (mcloudKeyResponse.IsSuccessful)
+                {
+                    Match match = Regex.Match(mcloudKeyResponse.Content, Patterns.REGEX_MCLOUDKEY);
+                    if (match.Success)
+                    {
+                        mcloudKey = match.Groups["key"].Value;
                     }
                 }
 
