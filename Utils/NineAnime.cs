@@ -27,8 +27,6 @@ namespace _9Anime_Downloader.Utils
             return await Task.Run(async () =>
             {
                 IConfiguration config = Configuration.Default;
-
-                //Create a new context for evaluating webpages with the given config
                 IBrowsingContext context = BrowsingContext.New(config);
 
                 List<Server> servers = new List<Server>();
@@ -71,6 +69,41 @@ namespace _9Anime_Downloader.Utils
                 }
 
                 return servers.ToArray();
+            });
+        }
+
+        public static async Task<string> GetVideoUrl(int serverId, string episodeId)
+        {
+            IConfiguration config = Configuration.Default;
+            IBrowsingContext context = BrowsingContext.New(config);
+
+            return await Task.Run(async () =>
+            {
+                RestRequest infoRequest = new RestRequest(APINodes.GET_EPISODEINFO(serverId, episodeId, mcloudKey));
+                RestResponse infoResponse = (RestResponse)client.Execute(infoRequest);
+                if (infoResponse.IsSuccessful)
+                {
+                    EpisodeInfoResponse info = JsonConvert.DeserializeObject<EpisodeInfoResponse>(infoResponse.Content);
+                    if (info != null)
+                    {
+                        RestRequest request = new RestRequest(info.target);
+                        RestResponse response = (RestResponse)client.Execute(request);
+                        if (response.IsSuccessful)
+                        {
+                            switch (serverId)
+                            {
+                                case 40:
+                                    {
+                                        IDocument document = await context.OpenAsync(req => req.Content(response.Content));
+                                        IElement videoElement = document.QuerySelector("#videolink");
+                                        return string.Format("https://{0}", videoElement.TextContent);
+                                    }
+                            }
+                        }
+                    }
+                }
+
+                return string.Empty;
             });
         }
     }
