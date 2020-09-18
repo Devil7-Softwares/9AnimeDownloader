@@ -92,7 +92,15 @@ namespace _9Anime_Downloader.Utils
                         {
                             switch (serverId)
                             {
-                                case 40:
+                                case 28: // MyCloud 
+                                    {
+                                        return string.Empty; // TODO
+                                    }
+                                case 35: // Mp4upload 
+                                    {
+                                        return string.Empty; // TODO
+                                    }
+                                case 40: // Streamtape
                                     {
                                         IDocument document = await context.OpenAsync(req => req.Content(response.Content));
                                         IElement videoElement = document.QuerySelector("#videolink");
