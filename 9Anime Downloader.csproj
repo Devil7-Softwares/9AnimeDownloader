@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>_9Anime_Downloader</RootNamespace>
+    <RootNamespace>Devil7.Utils.Automation.NineAnimeDownloader</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

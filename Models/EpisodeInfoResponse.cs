@@ -1,4 +1,4 @@
-﻿namespace _9Anime_Downloader.Models
+﻿namespace Devil7.Utils.Automation.NineAnimeDownloader.Models
 {
     public class EpisodeInfoResponse
     {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace _9Anime_Downloader.Models
+﻿namespace Devil7.Utils.Automation.NineAnimeDownloader.Models
 {
     public class Episode
     {

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace _9Anime_Downloader.Models
+namespace Devil7.Utils.Automation.NineAnimeDownloader.Models
 {
     public class Server
     {

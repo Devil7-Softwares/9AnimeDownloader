@@ -1,10 +1,10 @@
-﻿using _9Anime_Downloader.Models;
-using _9Anime_Downloader.Utils;
+﻿using Devil7.Utils.Automation.NineAnimeDownloader.Models;
+using Devil7.Utils.Automation.NineAnimeDownloader.Utils;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace _9Anime_Downloader
+namespace Devil7.Utils.Automation.NineAnimeDownloader
 {
     class Program
     {

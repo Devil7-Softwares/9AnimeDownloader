@@ -1,11 +1,9 @@
-﻿using _9Anime_Downloader.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
-namespace _9Anime_Downloader.Utils
+namespace Devil7.Utils.Automation.NineAnimeDownloader.Utils
 {
     public static class Common
     {

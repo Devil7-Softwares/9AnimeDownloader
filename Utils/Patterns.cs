@@ -1,4 +1,4 @@
-﻿namespace _9Anime_Downloader.Utils
+﻿namespace Devil7.Utils.Automation.NineAnimeDownloader.Utils
 {
     public static class Patterns
     {

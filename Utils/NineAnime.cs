@@ -1,4 +1,4 @@
-﻿using _9Anime_Downloader.Models;
+﻿using Devil7.Utils.Automation.NineAnimeDownloader.Models;
 using AngleSharp;
 using AngleSharp.Dom;
 using Newtonsoft.Json;
@@ -8,7 +8,7 @@ using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace _9Anime_Downloader.Utils
+namespace Devil7.Utils.Automation.NineAnimeDownloader.Utils
 {
     public static class NineAnime
     {
