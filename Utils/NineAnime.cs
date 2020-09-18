@@ -104,7 +104,7 @@ namespace Devil7.Utils.Automation.NineAnimeDownloader.Utils
                                     {
                                         IDocument document = await context.OpenAsync(req => req.Content(response.Content));
                                         IElement videoElement = document.QuerySelector("#videolink");
-                                        return string.Format("https://{0}", videoElement.TextContent);
+                                        return string.Format("https:{0}", videoElement.TextContent);
                                     }
                             }
                         }
